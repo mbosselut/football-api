@@ -1,0 +1,16 @@
+const express = require('express');
+const Team = require('./model');
+const { Router } = express;
+const router = new Router();
+// const db = require('../db');
+
+router.get('/team', (req, res, next) => {
+    Team.findAll()
+        .then(teams => {
+            console.log('hello from findAll');
+            return res.send(teams);
+        })
+        .catch(error => next(error));
+});
+
+module.exports = router;
