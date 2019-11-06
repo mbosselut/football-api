@@ -10,7 +10,10 @@ router.get('/team', (req, res, next) => {
             console.log('hello from findAll');
             return res.send(teams);
         })
-        .catch(error => next(error));
+        .catch(error => {
+            console.log('the app crashed', error);
+            next(error);
+        });
 });
 
 module.exports = router;
